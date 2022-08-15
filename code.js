@@ -1,12 +1,13 @@
 const palavras = ["dinossauro", "calopsita", "papagaio", "cobra", "falcao", "lesma", "hipopotamo"]
-let vida = 3;
 let input = document.getElementById('letra')
 let escolha = Math. floor(Math. random() * palavras. length)
 let palavraVez = palavras[escolha]
 let y = 50
+let vida = 7;
+let vidaPlus = palavraVez.length;
 
     function chutar() {
-    console.log(palavraVez)
+    
     let checagem = false;
     for(let i = 0; i < palavraVez.length;i++){
             if(palavraVez[i] == input.value) {
@@ -19,7 +20,9 @@ let y = 50
     
     if(checagem == true) {
         y = y + 50;
+        vida = vida - 1;
         desenharLetrasErradas(input.value, y)
+        desenharCorpo(vida);
     }
 }
 
@@ -110,6 +113,12 @@ let y = 50
         if(palavraVez[9] == input.value) {
             pincel.fillText(letra, 550, 370)
         }
+        vidaPlus = vidaPlus - 1;
+        
+        console.log(vidaPlus)
+        if(vidaPlus == 0) {
+            alert("Você venceu!")
+        }
     }
 
     function desenharLetrasErradas(letra, y) {
@@ -121,8 +130,47 @@ let y = 50
         }
     }
 
-    function desenharCorpo() {
+   
+    function desenharCorpo(vida) {
         var tela = document.querySelector('canvas')
         var pincel = tela.getContext('2d')
-        pincel.fillStyle = 'black';
+        if(vida == 6) {
+            pincel.beginPath()
+            pincel.arc(355, 110, 20, 0, 2 * 3.14)
+            pincel.stroke()
+        } else if (vida == 5) {
+            pincel.fillStyle = 'black';
+            pincel.fillRect(350, 125, 10, 90)
+        } else if (vida == 4) {
+            pincel.fillStyle = 'black';
+            pincel.beginPath()
+            pincel.moveTo(360, 200)
+            pincel.lineTo(300, 255)
+            pincel.closePath();
+            pincel.stroke()
+        } else if (vida == 3) {
+            pincel.fillStyle = 'black';
+            pincel.beginPath()
+            pincel.moveTo(360, 205)
+            pincel.lineTo(400, 255)
+            pincel.closePath();
+            pincel.stroke();
+        } else if (vida == 2) {
+            pincel.fillStyle = 'black';
+            pincel.beginPath()
+            pincel.moveTo(350, 150)
+            pincel.lineTo(300, 190)
+            pincel.closePath();
+            pincel.stroke()
+        } else if (vida == 1) {
+            pincel.fillStyle = 'black';
+            pincel.beginPath()
+            pincel.moveTo(350, 140)
+            pincel.lineTo(400, 190)
+            pincel.closePath();
+            pincel.stroke()
+        } else {
+            alert("Você perdeu!")
+        }
     }
+ 
