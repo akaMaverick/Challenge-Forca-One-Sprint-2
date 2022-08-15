@@ -1,0 +1,15 @@
+body {
+    background-color: lightblue;
+}
+
+#inicio {
+    position: absolute;
+    top: 275px;
+    margin: 0 auto;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#container {
+    display: none;
+}
