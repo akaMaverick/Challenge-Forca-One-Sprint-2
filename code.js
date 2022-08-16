@@ -27,8 +27,9 @@ let vidaPlus = palavraVez.length;
 }
 
     function desenharQuadro() {
-        var quadro = document.getElementById('quadro')
-        var botao = document.getElementById('inicio')
+        var quadro = document.getElementsByClassName('container')[0]
+        var quadroCanvas = document.getElementsByClassName('container')[1]
+        var botao = document.getElementsByClassName('inicio')[0]
         var tela = document.querySelector('canvas');
         var pincel = tela.getContext('2d')
         pincel.fillStyle = 'white';
@@ -42,26 +43,21 @@ let vidaPlus = palavraVez.length;
         pincel.fillStyle = 'black'
         pincel.fillRect(350, 50, 10, 50)
         botao.style.display = "none";
-        quadro.style.position = "absolute";
-        quadro.style.top = 0;
-        quadro.style.bottom = "15px";
-        quadro.style.left = 0;
-        quadro.style.right = 0;
-        quadro.style.margin = 'auto';
+        quadro.style.display = "flex";
+        quadro.style.flexDirection = "column";
+        quadro.style.alignItems = "center";
+        quadroCanvas.style.display = "flex"
+        quadroCanvas.style.marginBottom = "10px";
         aparecer();
-        desenharTracos(palavraVez)
+        desenharTracos(palavraVez);
         
         
     }
         
     function aparecer() {
-        var botaoChutar = document.getElementById("container")
-        botaoChutar.style.display = "contents";
-        botaoChutar.style.position = "absolute";
-        botaoChutar.style.top = 0;
-        botaoChutar.style.bottom = 15;
-        botaoChutar.style.left = 15;
-        botaoChutar.style.right = 0;
+        var botaoChutar = document.getElementsByClassName("container")[2] 
+        botaoChutar.style.display = "flex"
+        botaoChutar.style.marginBottom = "10px"
 
     }
     
