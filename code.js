@@ -56,8 +56,7 @@ function checkChar(e) {
         var botao = document.getElementsByClassName('inicio')[0]
         var tela = document.querySelector('canvas');
         var pincel = tela.getContext('2d')
-        pincel.fillStyle = 'white';
-        pincel.fillRect(0, 0, 600, 400);
+        pincel.clearRect(0,0,600,400);
         pincel.fillStyle = 'black'
         pincel.fillRect(100, 250, 100, 10)
         pincel.fillStyle = 'black'
@@ -81,6 +80,7 @@ function checkChar(e) {
     function aparecer() {
         var inputChutar = document.getElementsByClassName("container")[2] 
         var botaoChutar = document.getElementsByClassName("container")[3]
+        var botaoRecomecar = document.getElementsByClassName("container")[4]
         inputChutar.style.display = "flex"
         inputChutar.style.marginBottom = "10px"
         botaoChutar.style.display = "flex"
@@ -89,6 +89,7 @@ function checkChar(e) {
         botaoChutar.style.border = "#052051";
         botaoChutar.style.borderRadius = "5px";
         botaoChutar.style.padding = "10px"
+        botaoRecomecar.style.display = "flex"
 
     }
     
@@ -222,10 +223,12 @@ function checkChar(e) {
         let tumulo = new Image()
         tumulo.src = "tumulo.png"
         tumulo.onload = () => {
-        pincel.drawImage(tumulo,300,174)
+        pincel.clearRect(0,0,600,400);
+        pincel.drawImage(tumulo,300,164)
         pincel.font='20px Georgia';
         pincel.fillStyle = "black"
         pincel.fillText(`Você perdeu! A palavra era ${palavraVez.toLocaleLowerCase()}!`, 120, 150)
+        
         }
     }
     
