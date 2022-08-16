@@ -1,6 +1,12 @@
 const palavras = ["dinossauro", "calopsita", "papagaio", "cobra", "falcao", "lesma", "hipopotamo"]
-let escolha = Math.floor(Math. random() * palavras. length)
-let palavraVez = palavras[escolha]
+function selecionarPalavra() {
+    let escolha = Math.floor(Math. random() * palavras.length)
+    let palavraVez = palavras[escolha]
+    return palavraVez
+}
+
+
+let palavraVez = selecionarPalavra();
 let y = 50
 let vida = 7;
 let vidaPlus = palavraVez.length;
@@ -16,6 +22,15 @@ function comFor(frase, letraProcurada) {
         }
     }
     return quantidade;
+}
+console.log(palavras)
+function recomecar () {
+    palavraVez = selecionarPalavra();
+    desenharQuadro();
+    vidaPlus = palavraVez.length;
+    vida = 7;
+    letraEscrita = [];
+    y = 50
 }
 
 palavraAdicionada.addEventListener("keypress", function(e) {
@@ -175,6 +190,10 @@ function checkChar(e) {
             pincel.fillStyle = "white"
             pincel.fillRect(0, 0, 600, 400)
             fundoVitoria()
+            var inputChutar = document.getElementsByClassName("container")[2] 
+            var botaoChutar = document.getElementsByClassName("container__botoes")[1]
+            botaoChutar.style.display = "none"
+            inputChutar.style.display = "none"
         }
     }
 
@@ -240,6 +259,10 @@ function checkChar(e) {
             pincel.fillStyle = "white"
             pincel.fillRect(0, 0, 600, 400)
             fundoDerrota();
+            var inputChutar = document.getElementsByClassName("container")[2] 
+            var botaoChutar = document.getElementsByClassName("container__botoes")[1]
+            botaoChutar.style.display = "none"
+            inputChutar.style.display = "none"
         }
 
     }
