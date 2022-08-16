@@ -44,7 +44,11 @@ main {
     display: none;
 }
 
-.container > button:hover {
+.container__botoes {
+    display: none;
+}
+
+.container__botoes > button:hover {
     transition: 1s all;
     background-image: linear-gradient(#0A3871, #356EA9);
     cursor: pointer;

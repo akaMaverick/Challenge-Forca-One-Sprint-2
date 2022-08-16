@@ -1,5 +1,5 @@
 const palavras = ["dinossauro", "calopsita", "papagaio", "cobra", "falcao", "lesma", "hipopotamo"]
-let escolha = Math. floor(Math. random() * palavras. length)
+let escolha = Math.floor(Math. random() * palavras. length)
 let palavraVez = palavras[escolha]
 let y = 50
 let vida = 7;
@@ -91,17 +91,27 @@ function checkChar(e) {
         
     function aparecer() {
         var inputChutar = document.getElementsByClassName("container")[2] 
-        var botaoChutar = document.getElementsByClassName("container")[3]
-        var botaoRecomecar = document.getElementsByClassName("container")[4]
+        var botaoChutar = document.getElementsByClassName("container__botoes")[1]
+        var botoes = document.getElementsByClassName("container__botoes")[0]
+        var botaoRecomecar = document.getElementsByClassName("container__botoes")[2]
         inputChutar.style.display = "flex"
         inputChutar.style.marginBottom = "10px"
-        botaoChutar.style.display = "flex"
+        botoes.style.display = "flex"
         botaoChutar.style.backgroundColor = "#052051";
         botaoChutar.style.color = "#CED4DA"
         botaoChutar.style.border = "#052051";
         botaoChutar.style.borderRadius = "5px";
         botaoChutar.style.padding = "10px"
+        botaoChutar.style.display = "flex";
+        botoes.style.justifyContent = "center";
+        botaoChutar.style.marginRight = "10px"
         botaoRecomecar.style.display = "flex"
+        botaoRecomecar.style.backgroundColor = "#052051";
+        botaoRecomecar.style.color = "#CED4DA"
+        botaoRecomecar.style.border = "#052051";
+        botaoRecomecar.style.borderRadius = "5px";
+        botaoRecomecar.style.padding = "10px"
+        botoes.style.flexDirection = "row"
 
     }
     
