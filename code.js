@@ -1,5 +1,4 @@
 const palavras = ["dinossauro", "calopsita", "papagaio", "cobra", "falcao", "lesma", "hipopotamo"]
-//let input = document.getElementById('letra')
 let escolha = Math. floor(Math. random() * palavras. length)
 let palavraVez = palavras[escolha]
 let y = 50
@@ -7,6 +6,17 @@ let vida = 7;
 let vidaPlus = palavraVez.length;
 const input = document.getElementById('letra')
 let palavraAdicionada = document.getElementsByClassName('adicionar__escondido')[0]
+let letraEscrita = [];
+
+function comFor(frase, letraProcurada) {
+    var quantidade = 0;
+    for (var i = 0; i < frase.length; i++) {
+        if (frase[i] == letraProcurada) {
+            quantidade++
+        }
+    }
+    return quantidade;
+}
 
 palavraAdicionada.addEventListener("keypress", function(e) {
     if(!checkChar(e)) {
@@ -40,14 +50,16 @@ function checkChar(e) {
              }
     } 
 }
-    if(checagem == true) {
+    if(checagem == true && !letraEscrita.includes(input.value)) {
         y = y + 50;
         vida = vida - 1;
+        letraEscrita.push(input.value)
         desenharLetrasErradas(input.value.toLocaleUpperCase(), y)
         desenharCorpo(vida);
-    
+        
+    } 
     input.value = '';
-    }
+    input.focus();
 }
 
     function desenharQuadro() {
@@ -141,9 +153,14 @@ function checkChar(e) {
         if(palavraVez[9] == input.value) {
             pincel.fillText(letra, 550, 370)
         }
-        vidaPlus = vidaPlus - 1;
         
-        console.log(vidaPlus)
+        if(!letraEscrita.includes(input.value)) {
+        
+        vidaPlus = vidaPlus - comFor(palavraVez, input.value);
+        letraEscrita.push(input.value)
+        } 
+        
+        
         if(vidaPlus == 0) {
             pincel.fillStyle = "white"
             pincel.fillRect(0, 0, 600, 400)
