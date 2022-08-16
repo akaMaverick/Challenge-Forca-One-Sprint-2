@@ -25,6 +25,7 @@ function checkChar(e) {
     function chutar() {
     
     let checagem = false;
+    if(input.value != (input.length == 0)) {
     for(let i = 0; i < palavraVez.length;i++){
             if(palavraVez[i] == input.value) {
             desenharLetras(input.value.toLocaleUpperCase())
@@ -33,14 +34,15 @@ function checkChar(e) {
                  checagem = true;
              }
     } 
-    
+}
     if(checagem == true) {
         y = y + 50;
         vida = vida - 1;
-        desenharLetrasErradas(input.value, y)
+        desenharLetrasErradas(input.value.toLocaleUpperCase(), y)
         desenharCorpo(vida);
-    }
+    
     input.value = '';
+    }
 }
 
     function desenharQuadro() {
@@ -151,29 +153,39 @@ function checkChar(e) {
         var pincel = tela.getContext('2d')
         if(vida == 6) {
             pincel.beginPath()
-            pincel.arc(355, 110, 20, 0, 2 * 3.14)
+            pincel.arc(355, 120, 20, 0, 2 * 3.14)
+            pincel.moveTo(360, 129);
+            pincel.arc(355, 135, 8, 0, -3, Math.PI)
+            pincel.moveTo(350, 115);
+            pincel.arc(350, 115, 3, 0, Math.PI * 2)
+            pincel.moveTo(360, 115);
+            pincel.arc(360, 115, 3, 0, Math.PI * 2)
             pincel.stroke()
         } else if (vida == 5) {
             pincel.fillStyle = 'black';
-            pincel.fillRect(350, 125, 10, 90)
+            pincel.beginPath()
+            pincel.moveTo(350, 140)
+            pincel.lineTo(350, 200)
+            pincel.closePath();
+            pincel.stroke()
         } else if (vida == 4) {
             pincel.fillStyle = 'black';
             pincel.beginPath()
-            pincel.moveTo(360, 200)
-            pincel.lineTo(300, 255)
+            pincel.moveTo(350, 200)
+            pincel.lineTo(300, 250)
             pincel.closePath();
             pincel.stroke()
         } else if (vida == 3) {
             pincel.fillStyle = 'black';
             pincel.beginPath()
-            pincel.moveTo(360, 205)
-            pincel.lineTo(400, 255)
+            pincel.moveTo(350, 200)
+            pincel.lineTo(395, 250)
             pincel.closePath();
             pincel.stroke();
         } else if (vida == 2) {
             pincel.fillStyle = 'black';
             pincel.beginPath()
-            pincel.moveTo(350, 150)
+            pincel.moveTo(350, 140)
             pincel.lineTo(300, 190)
             pincel.closePath();
             pincel.stroke()
