@@ -117,7 +117,9 @@ let vidaPlus = palavraVez.length;
         
         console.log(vidaPlus)
         if(vidaPlus == 0) {
-            alert("Você venceu!")
+            pincel.fillStyle = "white"
+            pincel.fillRect(0, 0, 600, 400)
+            fundoVitoria()
         }
     }
 
@@ -170,7 +172,37 @@ let vidaPlus = palavraVez.length;
             pincel.closePath();
             pincel.stroke()
         } else {
-            alert("Você perdeu!")
+            pincel.fillStyle = "white"
+            pincel.fillRect(0, 0, 600, 400)
+            fundoDerrota();
+        }
+
+    }
+    
+    function fundoDerrota() {
+        var tela = document.querySelector('canvas')
+        var pincel = tela.getContext('2d')
+        let tumulo = new Image()
+        tumulo.src = "tumulo.png"
+        tumulo.onload = () => {
+        pincel.drawImage(tumulo,300,174)
+        pincel.font='20px Georgia';
+        pincel.fillStyle = "black"
+        pincel.fillText(`Você perdeu! A palavra era ${palavraVez}!`, 120, 150)
         }
     }
- 
+    
+    function fundoVitoria() {
+        var tela = document.querySelector('canvas')
+        var pincel = tela.getContext('2d')
+        let feliz = new Image()
+        feliz.src = "feliz.jpg"
+        feliz.onload = () => {
+        pincel.drawImage(feliz, 0, 0)
+        pincel.font='30px Georgia';
+        pincel.fillStyle = "black"
+        pincel.fillText(`Você venceu! A palavra era ${palavraVez}!`, 100, 150)
+        }
+        
+    }
+    
