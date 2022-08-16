@@ -273,7 +273,7 @@ function checkChar(e) {
         var tela = document.querySelector('canvas')
         var pincel = tela.getContext('2d')
         let tumulo = new Image()
-        tumulo.src = "tumulo.png"
+        tumulo.src = "./img/tumulo.png"
         tumulo.onload = () => {
         pincel.clearRect(0,0,650,400);
         pincel.drawImage(tumulo,300,164)
@@ -288,7 +288,7 @@ function checkChar(e) {
         var tela = document.querySelector('canvas')
         var pincel = tela.getContext('2d')
         let feliz = new Image()
-        feliz.src = "feliz.jpg"
+        feliz.src = "./img/feliz.jpg"
         feliz.onload = () => {
         pincel.drawImage(feliz, 0, 0)
         pincel.font='30px Georgia';
