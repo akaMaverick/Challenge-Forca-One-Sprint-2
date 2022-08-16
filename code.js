@@ -6,7 +6,13 @@ let y = 50
 let vida = 7;
 let vidaPlus = palavraVez.length;
 const input = document.getElementById('letra')
+let palavraAdicionada = document.getElementsByClassName('adicionar__escondido')[0]
 
+palavraAdicionada.addEventListener("keypress", function(e) {
+    if(!checkChar(e)) {
+        e.preventDefault();
+    }
+})
 input.addEventListener("keypress", function(e) {
     if(!checkChar(e)) {
         e.preventDefault();
@@ -17,7 +23,6 @@ function checkChar(e) {
 
     const pattern = '[a-z]'
     if(char.match(pattern)) {
-        console.log(pattern)
         return true
     }
 }
@@ -74,9 +79,16 @@ function checkChar(e) {
     }
         
     function aparecer() {
-        var botaoChutar = document.getElementsByClassName("container")[2] 
+        var inputChutar = document.getElementsByClassName("container")[2] 
+        var botaoChutar = document.getElementsByClassName("container")[3]
+        inputChutar.style.display = "flex"
+        inputChutar.style.marginBottom = "10px"
         botaoChutar.style.display = "flex"
-        botaoChutar.style.marginBottom = "10px"
+        botaoChutar.style.backgroundColor = "#052051";
+        botaoChutar.style.color = "#CED4DA"
+        botaoChutar.style.border = "#052051";
+        botaoChutar.style.borderRadius = "5px";
+        botaoChutar.style.padding = "10px"
 
     }
     
@@ -229,5 +241,18 @@ function checkChar(e) {
         pincel.fillText(`Você venceu! A palavra era ${palavraVez}!`, 100, 150)
         }
         
+    }
+
+    function aparecerAdicionar() {
+        palavraAdicionada.style.display = "flex";
+        palavraAdicionada.style.alignItems = "center";
+    }
+
+    function adicionar() {
+        if("" != palavraAdicionada.value) {
+        palavras.push(palavraAdicionada.value);
+        console.log(palavras)
+        palavraAdicionada.value = ""
+        }
     }
     

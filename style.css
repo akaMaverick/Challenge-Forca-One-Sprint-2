@@ -35,14 +35,19 @@ main {
    transform: scale(1.2);
 }
 
+.adicionar__escondido {
+    display: none;
+    margin: 0 auto 15px auto;
+}
+
 .container {
     display: none;
 }
 
 .container > button:hover {
-    background-color: #0A3871;
+    transition: 1s all;
+    background-image: linear-gradient(#0A3871, #356EA9);
     cursor: pointer;
-    transform: scale(1.2);
 }
 
 .rodape {

@@ -14,12 +14,13 @@
     <main>
         <section class="inicio">
             <button  onclick="desenharQuadro()">Iniciar Jogo</button>
-            <button>Adicionar Palavra</button>
+            <input class="adicionar__escondido" type="text" maxlength="10" placeholder="Insira nova palavra">
+            <button onclick="aparecerAdicionar(); adicionar()">Adicionar Palavra</button>
         </section>
         <section class="container">
             <canvas class="container" width="600" height="400"></canvas>
             <input class="container" id="letra" type="text" maxlength="1">
-            <button onclick="chutar()">Chutar</button>
+            <button class="container" onclick="chutar()">Chutar</button>
         </section>
     </main>
     <footer class="rodape">
