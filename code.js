@@ -1,4 +1,4 @@
-const palavras = ["dinossauro", "calopsita", "papagaio", "cobra", "falcao", "lesma", "hipopotamo"]
+const palavras = ["dinossauro", "calopsita", "alura", "oracle", "challenge", "logica", "programaçao", "texugo", "ziper", "caxumba", "caixao", "maçarico", "joaninha", "dinheiro", "javascript", "html", "css", "github", "linkedin"]
 function selecionarPalavra() {
     let escolha = Math.floor(Math. random() * palavras.length)
     let palavraVez = palavras[escolha]
@@ -23,7 +23,7 @@ function comFor(frase, letraProcurada) {
     }
     return quantidade;
 }
-console.log(palavras)
+
 function recomecar () {
     palavraVez = selecionarPalavra();
     desenharQuadro();
@@ -46,7 +46,7 @@ input.addEventListener("keypress", function(e) {
 function checkChar(e) {
     const char = String.fromCharCode(e.keyCode)
 
-    const pattern = '[a-z]'
+    const pattern = '[a-z,ç]'
     if(char.match(pattern)) {
         return true
     }
@@ -83,7 +83,7 @@ function checkChar(e) {
         var botao = document.getElementsByClassName('inicio')[0]
         var tela = document.querySelector('canvas');
         var pincel = tela.getContext('2d')
-        pincel.clearRect(0,0,600,400);
+        pincel.clearRect(0,0,650,400);
         pincel.fillStyle = 'black'
         pincel.fillRect(100, 250, 100, 10)
         pincel.fillStyle = 'black'
@@ -178,7 +178,9 @@ function checkChar(e) {
         if(palavraVez[9] == input.value) {
             pincel.fillText(letra, 550, 370)
         }
-        
+        if(palavraVez[10] == input.value) {
+            pincel.fillText(letra, 600, 370)
+        }
         if(!letraEscrita.includes(input.value)) {
         
         vidaPlus = vidaPlus - comFor(palavraVez, input.value);
@@ -273,7 +275,7 @@ function checkChar(e) {
         let tumulo = new Image()
         tumulo.src = "tumulo.png"
         tumulo.onload = () => {
-        pincel.clearRect(0,0,600,400);
+        pincel.clearRect(0,0,650,400);
         pincel.drawImage(tumulo,300,164)
         pincel.font='20px Georgia';
         pincel.fillStyle = "black"
@@ -309,3 +311,7 @@ function checkChar(e) {
         }
     }
     
+    function voltarMenu() {
+        window.location.reload();
+        return false
+    }

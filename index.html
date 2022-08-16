@@ -8,23 +8,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1><img src="Vector.svg" alt=""></h1>
+    <header class="cabecalho">
+        <a href="#" onclick="voltarMenu()"><h1><img src="Vector.svg" alt="logo da alura"></h1></a>
     </header>
     <main>
         <section class="inicio">
             <button  onclick="desenharQuadro()">Iniciar Jogo</button>
-            <input class="adicionar__escondido" type="text" maxlength="10" placeholder="Insira nova palavra">
+            <input class="adicionar__escondido" type="text" maxlength="11" placeholder="Insira nova palavra">
             <button onclick="aparecerAdicionar(); adicionar()">Adicionar Palavra</button>
         </section>
         <section class="container">
-            <canvas class="container" width="600" height="400"></canvas>
+            <canvas class="container" width="650" height="400"></canvas>
             <input class="container" id="letra" type="text" maxlength="1">
             
         </section>
         <div class="container__botoes">
             <button class="container__botoes" onclick="chutar()">Chutar</button>
-            <button class="container__botoes" onclick="recomecar()">Recomeçar</button>
+            <button class="container__botoes" onclick="recomecar()">Nova Palavra</button>
         </div>
     </main>
     <footer class="rodape">
