@@ -1,17 +1,33 @@
 const palavras = ["dinossauro", "calopsita", "papagaio", "cobra", "falcao", "lesma", "hipopotamo"]
-let input = document.getElementById('letra')
+//let input = document.getElementById('letra')
 let escolha = Math. floor(Math. random() * palavras. length)
 let palavraVez = palavras[escolha]
 let y = 50
 let vida = 7;
 let vidaPlus = palavraVez.length;
+const input = document.getElementById('letra')
+
+input.addEventListener("keypress", function(e) {
+    if(!checkChar(e)) {
+        e.preventDefault();
+    }
+})
+function checkChar(e) {
+    const char = String.fromCharCode(e.keyCode)
+
+    const pattern = '[a-z]'
+    if(char.match(pattern)) {
+        console.log(pattern)
+        return true
+    }
+}
 
     function chutar() {
     
     let checagem = false;
     for(let i = 0; i < palavraVez.length;i++){
             if(palavraVez[i] == input.value) {
-            desenharLetras(input.value)
+            desenharLetras(input.value.toLocaleUpperCase())
              } 
              if(palavraVez.split("") && palavraVez[0] != input.value && palavraVez[1] != input.value && palavraVez[2] != input.value && palavraVez[3] != input.value && palavraVez[4] != input.value && palavraVez[5] != input.value && palavraVez[6] != input.value && palavraVez[7] != input.value && palavraVez[8] != input.value && palavraVez[9] != input.value){
                  checagem = true;
@@ -24,6 +40,7 @@ let vidaPlus = palavraVez.length;
         desenharLetrasErradas(input.value, y)
         desenharCorpo(vida);
     }
+    input.value = '';
 }
 
     function desenharQuadro() {
@@ -184,7 +201,7 @@ let vidaPlus = palavraVez.length;
         pincel.drawImage(tumulo,300,174)
         pincel.font='20px Georgia';
         pincel.fillStyle = "black"
-        pincel.fillText(`Você perdeu! A palavra era ${palavraVez}!`, 120, 150)
+        pincel.fillText(`Você perdeu! A palavra era ${palavraVez.toLocaleLowerCase()}!`, 120, 150)
         }
     }
     
