@@ -1,4 +1,4 @@
-const palavras = ["dinossauro", "calopsita", "alura", "oracle", "challenge", "logica", "programaçao", "texugo", "ziper", "caxumba", "caixao", "maçarico", "joaninha", "dinheiro", "javascript", "html", "css", "github", "linkedin"]
+const palavras = ["dinossauro", "calopsita", "alura", "oracle", "challenge", "logica", "medicina", "texugo", "ziper", "caxumba", "caixao", "letreiro", "joaninha", "dinheiro", "javascript", "html", "css", "github", "linkedin"]
 function selecionarPalavra() {
     let escolha = Math.floor(Math. random() * palavras.length)
     let palavraVez = palavras[escolha]
@@ -46,7 +46,7 @@ input.addEventListener("keypress", function(e) {
 function checkChar(e) {
     const char = String.fromCharCode(e.keyCode)
 
-    const pattern = '[a-z,ç]'
+    const pattern = '[a-z]'
     if(char.match(pattern)) {
         return true
     }
