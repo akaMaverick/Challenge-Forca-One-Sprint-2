@@ -79,3 +79,23 @@ main {
 .rodape__link:hover {
     color: green;
 }
+
+@media only screen and (min-device-width : 200px) and (max-device-width : 480px) {
+    .inicio > button {
+        width: 50%;
+    }
+
+    .container {
+        position: relative;
+        width: 80%;
+        height: 50%;
+        left: 20px;
+        top: 40px;
+    }
+
+    .container__botoes {
+        position: relative;
+        top: 45px;
+    }
+
+}
