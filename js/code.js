@@ -293,7 +293,7 @@ function checkChar(e) {
         pincel.drawImage(feliz, 0, 0)
         pincel.font='30px Georgia';
         pincel.fillStyle = "black"
-        pincel.fillText(`Você venceu! A palavra era ${palavraVez}!`, 100, 150)
+        pincel.fillText(`Você venceu! A palavra era ${palavraVez}!`, 50, 150)
         }
         
     }
